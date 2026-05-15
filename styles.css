@@ -667,11 +667,78 @@ section[id],main[id]{ scroll-margin-top:90px; }
 .float-line:hover{ transform:translateY(-4px); }
 
 /* =========================================================
-   Reveal animation
+   Animations
    ========================================================= */
+
+/* Reveal animations */
 .reveal{ opacity:0; transform:translateY(36px);
   transition:opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.is-in{ opacity:1; transform:none; }
+
+/* Floating animation */
+@keyframes float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-12px); }
+}
+.reveal.float{ animation:float 3.8s var(--ease) infinite; }
+
+/* Scale reveal animation */
+@keyframes scaleIn{
+  from{ opacity:0; transform:scale(.92) translateY(24px); }
+  to{ opacity:1; transform:scale(1) translateY(0); }
+}
+.reveal.scale{ opacity:0; transform:scale(.92) translateY(24px); }
+.reveal.scale.is-in{ animation:scaleIn .8s var(--ease) forwards; }
+
+/* Slide reveal from right */
+@keyframes slideInRight{
+  from{ opacity:0; transform:translateX(40px); }
+  to{ opacity:1; transform:translateX(0); }
+}
+.reveal.slide-right{ opacity:0; transform:translateX(40px); }
+.reveal.slide-right.is-in{ animation:slideInRight .8s var(--ease) forwards; }
+
+/* Slide reveal from left */
+@keyframes slideInLeft{
+  from{ opacity:0; transform:translateX(-40px); }
+  to{ opacity:1; transform:translateX(0); }
+}
+.reveal.slide-left{ opacity:0; transform:translateX(-40px); }
+.reveal.slide-left.is-in{ animation:slideInLeft .8s var(--ease) forwards; }
+
+/* Stagger animation delay classes */
+.reveal[data-delay]{ --delay: 0ms; }
+.reveal[data-delay="100"]{ --delay: 100ms; }
+.reveal[data-delay="200"]{ --delay: 200ms; }
+.reveal[data-delay="300"]{ --delay: 300ms; }
+.reveal[data-delay="400"]{ --delay: 400ms; }
+.reveal[data-delay="500"]{ --delay: 500ms; }
+
+/* Gradient animation */
+@keyframes gradientShift{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+.grad-animate{
+  background-size:200% 200%;
+  animation:gradientShift 6s var(--ease) infinite;
+}
+
+/* Pulse animation */
+@keyframes pulseFade{
+  0%,100%{ opacity:1; }
+  50%{ opacity:.7; }
+}
+.pulse{ animation:pulseFade 3s ease-in-out infinite; }
+
+/* Rotate animation */
+@keyframes rotateIn{
+  from{ opacity:0; transform:rotate(-8deg) translateY(24px); }
+  to{ opacity:1; transform:rotate(0) translateY(0); }
+}
+.reveal.rotate{ opacity:0; transform:rotate(-8deg) translateY(24px); }
+.reveal.rotate.is-in{ animation:rotateIn .8s var(--ease) forwards; }
 
 /* =========================================================
    Responsive

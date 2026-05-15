@@ -32,7 +32,7 @@
     }
   });
 
-  /* ---- Scroll reveal (staggered) ---- */
+  /* ---- Scroll reveal (staggered) with enhanced effects ---- */
   const revealItems = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -46,6 +46,19 @@
     revealItems.forEach((el) => io.observe(el));
   } else {
     revealItems.forEach((el) => el.classList.add('is-in'));
+  }
+
+  /* ---- Parallax scroll effect for sections ---- */
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+  const onParallaxScroll = () => {
+    parallaxElements.forEach((el) => {
+      const speed = Number(el.dataset.parallax) || 0.5;
+      const offset = window.scrollY * speed;
+      el.style.transform = `translateY(${offset}px)`;
+    });
+  };
+  if (parallaxElements.length > 0) {
+    window.addEventListener('scroll', onParallaxScroll, { passive: true });
   }
 
   /* ---- Count-up numbers ---- */
@@ -90,6 +103,30 @@
       });
     }, { passive: true });
   }
+
+  /* ---- Card hover elevation ---- */
+  const cards = document.querySelectorAll('.bento__card, .num-card, .voices__card, .faq__item');
+  cards.forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-8px)';
+      card.style.transition = 'transform .3s var(--ease), box-shadow .3s var(--ease)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+    });
+  });
+
+  /* ---- Smooth number reveal on hover ---- */
+  const numberElements = document.querySelectorAll('[data-count]');
+  numberElements.forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      el.style.color = 'var(--green)';
+      el.style.transition = 'color .3s var(--ease)';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.color = 'inherit';
+    });
+  });
 
   /* ---- FAQ: single-open accordion ---- */
   const faqItems = document.querySelectorAll('.faq__item');
