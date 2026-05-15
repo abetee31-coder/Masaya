@@ -13,11 +13,11 @@
   position:absolute;
   inset:0;
   background-position:68% 10%;
-  opacity:.28;
+  opacity:.55;
   z-index:1;
   pointer-events:none;
-  -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 22%, rgba(0,0,0,.65) 50%, black 68%);
-  mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 22%, rgba(0,0,0,.65) 50%, black 68%);
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,.4) 35%, rgba(0,0,0,.85) 55%, black 70%);
+  mask-image:linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,.4) 35%, rgba(0,0,0,.85) 55%, black 70%);
 }
 
 /* Float cards repositioned for full-width hero */
