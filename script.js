@@ -1,105 +1,103 @@
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+/* =========================================================
+   Masaya Works — interactions
+   ========================================================= */
+(() => {
+  'use strict';
 
-// Add active class to navigation links on scroll
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.id;
-            document.querySelectorAll('.nav a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}, { threshold: 0.5 });
+  const nav      = document.getElementById('nav');
+  const burger   = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  const floatCTA = document.querySelector('.float-line');
+  const hero     = document.querySelector('.hero');
 
-document.querySelectorAll('section[id]').forEach(section => {
-    observer.observe(section);
-});
-
-// Button click handlers
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        const btnText = this.textContent.toLowerCase();
-
-        if (btnText.includes('line')) {
-            console.log('LINE で相談する - LINEアプリを開く処理');
-            // LINE公式アカウントのURLに置き換える
-            // window.open('https://line.me/R/ti/p/@YOUR_ACCOUNT_ID', '_blank');
-            alert('LINEで相談するボタンがクリックされました');
-        } else if (btnText.includes('電話')) {
-            console.log('お電話で相談 - 電話をかける処理');
-            // tel:リンクを使用
-            // window.location.href = 'tel:+81312345678';
-            alert('お電話で相談するボタンがクリックされました');
-        } else if (btnText.includes('問い合わせ')) {
-            console.log('お問い合わせボタンがクリックされました');
-            // const contactSection = document.querySelector('#contact');
-            // contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-// Add animation to elements on scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.feature-card, .example-card, .step, .faq-item');
-
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
-
-        if (elementPosition < screenPosition) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-};
-
-// Initialize animation styles
-document.querySelectorAll('.feature-card, .example-card, .step, .faq-item').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-});
-
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
-
-// Responsive hamburger menu (for future mobile navigation enhancement)
-const createMobileMenu = () => {
-    const nav = document.querySelector('.nav');
-    const header = document.querySelector('.header .container');
-
-    if (window.innerWidth <= 768) {
-        if (!document.querySelector('.hamburger-menu')) {
-            const hamburger = document.createElement('div');
-            hamburger.className = 'hamburger-menu';
-            hamburger.innerHTML = '☰';
-            hamburger.style.cursor = 'pointer';
-            hamburger.style.fontSize = '24px';
-            hamburger.style.display = 'block';
-            header.appendChild(hamburger);
-
-            hamburger.addEventListener('click', () => {
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            });
-        }
+  /* ---- Sticky header + floating CTA ---- */
+  const onScroll = () => {
+    nav.classList.toggle('is-stuck', window.scrollY > 24);
+    if (floatCTA && hero) {
+      floatCTA.classList.toggle('is-shown', window.scrollY > hero.offsetHeight * 0.6);
     }
-};
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-window.addEventListener('resize', createMobileMenu);
-window.addEventListener('load', createMobileMenu);
+  /* ---- Mobile menu ---- */
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  navLinks.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  /* ---- Scroll reveal (staggered) ---- */
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const delay = Number(entry.target.dataset.delay || 0);
+        setTimeout(() => entry.target.classList.add('is-in'), delay);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    revealItems.forEach((el) => io.observe(el));
+  } else {
+    revealItems.forEach((el) => el.classList.add('is-in'));
+  }
+
+  /* ---- Count-up numbers ---- */
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  const runCount = (el) => {
+    const target = Number(el.dataset.count) || 0;
+    const suffix = el.dataset.suffix || '';
+    const dur = 1500;
+    let start = null;
+    const tick = (now) => {
+      if (start === null) start = now;
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(easeOut(p) * target).toLocaleString('ja-JP') + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const counters = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window) {
+    const co = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        runCount(entry.target);
+        co.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => co.observe(el));
+  } else {
+    counters.forEach(runCount);
+  }
+
+  /* ---- Hero parallax (pointer) ---- */
+  const blobs = document.querySelectorAll('.blob');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+    window.addEventListener('mousemove', (e) => {
+      const dx = (e.clientX / window.innerWidth - 0.5);
+      const dy = (e.clientY / window.innerHeight - 0.5);
+      blobs.forEach((b, i) => {
+        const depth = (i + 1) * 16;
+        b.style.translate = `${dx * depth}px ${dy * depth}px`;
+      });
+    }, { passive: true });
+  }
+
+  /* ---- FAQ: single-open accordion ---- */
+  const faqItems = document.querySelectorAll('.faq__item');
+  faqItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        faqItems.forEach((other) => { if (other !== item) other.open = false; });
+      }
+    });
+  });
+})();

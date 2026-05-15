@@ -1,253 +1,490 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>賃貸のお部屋探し - 最短即日でお部屋が見つかる</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="住み込み寮付きの軽作業求人。所持金ゼロ・住む家がない・経験ゼロでもOK。寮費・家具家電・移動費すべて0円、採用率98%、最短即日でお仕事スタート。">
+<title>Masaya Works｜住み込み寮付きの軽作業求人 — 最短即日でお仕事スタート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">Masaya</div>
-            <nav class="nav">
-                <a href="#features">特徴</a>
-                <a href="#examples">実例</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact" class="nav-cta">お問い合わせ</a>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">短期でお部屋が見つかる</h1>
-                <p class="hero-subtitle">最短即日で最適なお部屋をご提案</p>
-                <div class="hero-highlight">
-                    <span class="highlight-icon">✓</span>
-                    <p>お忙しい方も安心 - 時間短縮でお部屋探しが叶う</p>
-                </div>
-                <button class="btn btn-primary btn-lg">まずはお問い合わせ</button>
-            </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="300" fill="#e8f0f8"/>
-                        <text x="200" y="150" text-anchor="middle" font-size="20" fill="#0066cc">
-                            部屋探しのイメージ
-                        </text>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ===== Ambient background ===== -->
+<div class="aurora" aria-hidden="true">
+  <span class="blob blob--1"></span>
+  <span class="blob blob--2"></span>
+  <span class="blob blob--3"></span>
+  <span class="grain"></span>
+</div>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">このサービスが選ばれる理由</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>最短即日対応</h3>
-                    <p>お急ぎの方も心配いりません。迅速にお部屋をご提案します。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>希望に合わせた提案</h3>
-                    <p>あなたのこだわり条件に合わせた厳選物件をご紹介。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>LINEで気軽に相談</h3>
-                    <p>気になることはLINEですぐに相談。24時間対応可能。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>スマホで完結</h3>
-                    <p>スマートフォンで契約まで手続きが完了します。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>業界最安値</h3>
-                    <p>手数料や初期費用を可能な限り削減したお得なプランです。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>安心・安全</h3>
-                    <p>信頼できる物件のみをセレクト。トラブル対応も万全。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ===== Header ===== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">Masaya<em>Works</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#numbers">実績</a>
+      <a href="#flow">ご入職の流れ</a>
+      <a href="#jobs">お仕事</a>
+      <a href="#voices">利用者の声</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#contact" class="btn btn--line nav__cta">
+      <span class="ico-line" aria-hidden="true"></span>LINEで無料相談
+    </a>
+    <button class="nav__burger" id="burger" aria-label="メニュー" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <!-- Examples Section -->
-    <section id="examples" class="examples">
-        <div class="container">
-            <h2 class="section-title">こんなお客様にご利用いただいてます</h2>
-            <div class="examples-grid">
-                <div class="example-card">
-                    <div class="example-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="200" fill="#f0f4f8"/>
-                            <circle cx="100" cy="60" r="30" fill="#0066cc"/>
-                            <rect x="60" y="120" width="80" height="60" fill="#0066cc"/>
-                        </svg>
-                    </div>
-                    <h4>転職で急いでいる</h4>
-                    <p>転職先が決まって急遽引っ越しが必要に。最短で物件を見つけることができました。</p>
-                </div>
-                <div class="example-card">
-                    <div class="example-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="200" fill="#f0f4f8"/>
-                            <circle cx="100" cy="60" r="30" fill="#0066cc"/>
-                            <rect x="60" y="120" width="80" height="60" fill="#0066cc"/>
-                        </svg>
-                    </div>
-                    <h4>家族が増えた</h4>
-                    <p>子どもが生まれたので広い部屋が急に必要。ぴったりな物件をすぐに見つけてくれました。</p>
-                </div>
-                <div class="example-card">
-                    <div class="example-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="200" fill="#f0f4f8"/>
-                            <circle cx="100" cy="60" r="30" fill="#0066cc"/>
-                            <rect x="60" y="120" width="80" height="60" fill="#0066cc"/>
-                        </svg>
-                    </div>
-                    <h4>遠方への引っ越し</h4>
-                    <p>初めての土地での部屋探しで困っていましたが、丁寧にサポートしてくれました。</p>
-                </div>
-                <div class="example-card">
-                    <div class="example-image">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="200" fill="#f0f4f8"/>
-                            <circle cx="100" cy="60" r="30" fill="#0066cc"/>
-                            <rect x="60" y="120" width="80" height="60" fill="#0066cc"/>
-                        </svg>
-                    </div>
-                    <h4>予算が限られている</h4>
-                    <p>予算内での物件探しが難しかったけど、ベストな選択肢を提案してくれました。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<main id="top">
 
-    <!-- LINE Section -->
-    <section class="line-section">
-        <div class="container">
-            <h2 class="section-title">LINEでかんたんお問い合わせ</h2>
-            <p class="line-description">下記のボタンから公式LINEを友達追加して、気軽にご相談ください。</p>
-            <div class="line-buttons">
-                <button class="btn btn-line">
-                    <span class="line-icon">💬</span> LINEで相談する
-                </button>
-            </div>
-            <div class="line-flow">
-                <div class="flow-step">
-                    <div class="flow-number">1</div>
-                    <p>LINEを友達追加</p>
-                </div>
-                <div class="flow-step">
-                    <div class="flow-number">2</div>
-                    <p>条件をお聞かせ</p>
-                </div>
-                <div class="flow-step">
-                    <div class="flow-number">3</div>
-                    <p>物件をご提案</p>
-                </div>
-                <div class="flow-step">
-                    <div class="flow-number">4</div>
-                    <p>契約完了</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy reveal">
+        <p class="eyebrow"><span class="eyebrow__dot"></span>軽作業専門 ／ 全国対応の住み込みワーク</p>
+        <h1 class="hero__title">
+          住み込み寮付きの軽作業で、<br>
+          <span class="grad">最短即日</span>スタート。
+        </h1>
+        <p class="hero__lead">
+          所持金ゼロ・住む家がない・携帯がない。<br class="br-pc">
+          そんな状況でも大丈夫です。寮費・家具家電・移動費はすべて<strong>0円</strong>。<br class="br-pc">
+          あなたの“再スタート”を、最短ルートでサポートします。
+        </p>
 
-    <!-- Process Section -->
-    <section class="process">
-        <div class="container">
-            <h2 class="section-title">ご利用の流れ</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>お問い合わせ</h4>
-                    <p>LINEまたはお電話でお気軽にご連絡ください。</p>
-                </div>
-                <div class="step-icon">→</div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>ご提案</h4>
-                    <p>あなたのご希望に合わせた物件をご紹介します。</p>
-                </div>
-                <div class="step-icon">→</div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>内見</h4>
-                    <p>気に入った物件を実際にご覧いただきます。</p>
-                </div>
-                <div class="step-icon">→</div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>契約</h4>
-                    <p>手続きを進めて、新しいお部屋への入居です。</p>
-                </div>
-            </div>
+        <div class="hero__stats">
+          <div class="stat-chip glass">
+            <span class="stat-chip__num" data-count="98" data-suffix="%">0%</span>
+            <span class="stat-chip__label">採用率</span>
+          </div>
+          <div class="stat-chip glass">
+            <span class="stat-chip__num"><em>40</em>万円〜</span>
+            <span class="stat-chip__label">月収の目安</span>
+          </div>
+          <div class="stat-chip glass">
+            <span class="stat-chip__num"><em>0</em>円</span>
+            <span class="stat-chip__label">寮費・移動費</span>
+          </div>
         </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 class="section-title">よくある質問</h2>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>本当に最短即日で見つかるのですか？</summary>
-                    <p>はい。ご希望の条件をお聞かせいただければ、当日中にご提案させていただきます。ただし、条件によってはお時間をいただく場合があります。</p>
-                </details>
-                <details class="faq-item">
-                    <summary>初期費用はどのくらいかかりますか？</summary>
-                    <p>物件により異なりますが、業界最安値での提案を心がけています。詳しくはお問い合わせください。</p>
-                </details>
-                <details class="faq-item">
-                    <summary>手数料はかかりますか？</summary>
-                    <p>基本的には手数料無料です。詳細はお問い合わせ時にご説明させていただきます。</p>
-                </details>
-                <details class="faq-item">
-                    <summary>遠方からの利用は可能ですか？</summary>
-                    <p>はい、遠方からのご利用も対応しております。オンライン相談や郵送での手続きもご利用いただけます。</p>
-                </details>
-                <details class="faq-item">
-                    <summary>サポートはいつまで受けられますか？</summary>
-                    <p>入居後もサポートを継続いたします。何かご不明な点があればお気軽にご連絡ください。</p>
-                </details>
-            </div>
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn--line btn--lg">
+            <span class="ico-line" aria-hidden="true"></span>LINEで無料相談する
+          </a>
+          <a href="tel:0120000000" class="btn btn--ghost btn--lg">
+            <span class="ico-phone" aria-hidden="true"></span>電話で相談（受付 9–21時）
+          </a>
         </div>
-    </section>
+        <p class="hero__note">※ご相談・登録は完全無料。しつこい勧誘は一切ありません。</p>
+      </div>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta-section">
-        <div class="container">
-            <h2>お部屋探しは最短即日で完結</h2>
-            <p>ご不明な点やご質問は、LINEまたはお電話でお気軽にお問い合わせください。</p>
-            <div class="cta-buttons">
-                <button class="btn btn-primary btn-lg">LINEで相談する</button>
-                <button class="btn btn-secondary btn-lg">お電話で相談</button>
-            </div>
+      <div class="hero__visual reveal" data-delay="160">
+        <figure class="media media--hero glass">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=80"
+               alt="明るく清潔な物流倉庫で働くスタッフ" loading="eager"
+               onerror="this.closest('.media').classList.add('is-fallback');this.remove();">
+        </figure>
+        <div class="float-card glass float-card--a">
+          <span class="float-card__icon">🏠</span>
+          <div>
+            <strong>家具家電付きの寮</strong>
+            <small>即日入居OK</small>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Masaya - 賃貸のお部屋探しサービス. All rights reserved.</p>
+        <div class="float-card glass float-card--b">
+          <span class="float-card__icon">💴</span>
+          <div>
+            <strong>日払い・前払い対応</strong>
+            <small>お財布もすぐ安心</small>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
 
-    <script src="script.js"></script>
+    <a href="#trust" class="scroll-cue" aria-label="次のセクションへ">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===== Trust pills ===== -->
+  <section class="trust" id="trust">
+    <div class="container">
+      <p class="trust__lead reveal">こんな状況からでも、はじめられます。</p>
+      <ul class="trust__pills reveal" data-delay="80">
+        <li class="glass">所持金ゼロ</li>
+        <li class="glass">住む家がない</li>
+        <li class="glass">携帯がない</li>
+        <li class="glass">職歴・経験ゼロ</li>
+        <li class="glass">ブランクあり</li>
+        <li class="trust__ok">でも、OK。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Reasons (bento) ===== -->
+  <section class="section" id="reasons">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="section__kicker">WHY MASAYA</p>
+        <h2 class="section__title">Masaya Works が<span class="grad">選ばれる5つの理由</span></h2>
+        <p class="section__desc">「住まい」「お金」「仕事」――不安をまるごと引き受けます。だから、手ぶらでも今日から動き出せる。</p>
+      </header>
+
+      <div class="bento reveal" data-delay="100">
+        <article class="bento__card bento__card--feature glass">
+          <figure class="bento__media media">
+            <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=1200&q=80"
+                 alt="倉庫内の軽作業の様子" loading="lazy"
+                 onerror="this.closest('.media').classList.add('is-fallback');this.remove();">
+          </figure>
+          <div class="bento__body">
+            <span class="bento__no">01</span>
+            <h3>寮付きのお仕事を即ご紹介</h3>
+            <p>全国の住み込み求人データベースから、あなたの希望条件に合う一件を最短即日でご提案。「住まい」と「仕事」が同時に決まります。</p>
+          </div>
+        </article>
+
+        <article class="bento__card glass">
+          <span class="bento__icon" aria-hidden="true">🛏️</span>
+          <span class="bento__no">02</span>
+          <h3>入居前の待機室をご用意</h3>
+          <p>お仕事が決まるまでの滞在先も無料でサポート。今夜の寝床に困りません。</p>
+        </article>
+
+        <article class="bento__card glass">
+          <span class="bento__icon" aria-hidden="true">🚄</span>
+          <span class="bento__no">03</span>
+          <h3>赴任費用をフルサポート</h3>
+          <p>勤務地までの移動費は会社が負担。全国どこからでも、交通費0円で出発できます。</p>
+        </article>
+
+        <article class="bento__card bento__card--wide glass">
+          <span class="bento__icon" aria-hidden="true">🍱</span>
+          <span class="bento__no">04</span>
+          <h3>給料日までの食事サポート</h3>
+          <p>初給与が入るまでの生活費を立て替え。「明日のごはん」を心配せずに働き始められます。</p>
+        </article>
+
+        <article class="bento__card bento__card--wide glass">
+          <span class="bento__icon" aria-hidden="true">📱</span>
+          <span class="bento__no">05</span>
+          <h3>携帯電話の貸出サポート</h3>
+          <p>連絡手段がなくても問題なし。スマホの貸出で、就業・連絡の不安を解消します。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Numbers ===== -->
+  <section class="section section--tight" id="numbers">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="section__kicker">BY THE NUMBERS</p>
+        <h2 class="section__title">数字で見る、<span class="grad">Masaya の実力</span></h2>
+      </header>
+
+      <div class="numbers reveal" data-delay="100">
+        <div class="num-card num-card--hero glass">
+          <span class="num-card__value"><span data-count="98">0</span><em>%</em></span>
+          <span class="num-card__label">採用率</span>
+          <p class="num-card__note">ほぼ全員が、お仕事内定。経験や職歴は問いません。</p>
+        </div>
+        <div class="num-card glass">
+          <span class="num-card__value">最短<em>即日</em></span>
+          <span class="num-card__label">面接 → 入職</span>
+        </div>
+        <div class="num-card glass">
+          <span class="num-card__value"><span data-count="40">0</span><em>万円〜</em></span>
+          <span class="num-card__label">月収案件あり</span>
+        </div>
+        <div class="num-card glass">
+          <span class="num-card__value"><span data-count="47">0</span><em>都道府県</em></span>
+          <span class="num-card__label">全国の求人エリア</span>
+        </div>
+        <div class="num-card glass">
+          <span class="num-card__value"><span data-count="5000">0</span><em>件+</em></span>
+          <span class="num-card__label">住み込み求人数</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Flow ===== -->
+  <section class="section" id="flow">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="section__kicker">FLOW</p>
+        <h2 class="section__title">ご入職までの<span class="grad">5 STEP</span></h2>
+        <p class="section__desc">ご相談から入職後のフォローまで。難しい手続きは一切ありません。</p>
+      </header>
+
+      <ol class="flow reveal" data-delay="100">
+        <li class="flow__step glass">
+          <span class="flow__no">STEP 01</span>
+          <h3>ご相談</h3>
+          <p>LINEまたはお電話で。匿名のままでも気軽にどうぞ。</p>
+        </li>
+        <li class="flow__step glass">
+          <span class="flow__no">STEP 02</span>
+          <h3>ヒアリング</h3>
+          <p>希望のエリア・収入・働き方を専任スタッフがお伺いします。</p>
+        </li>
+        <li class="flow__step glass">
+          <span class="flow__no">STEP 03</span>
+          <h3>お仕事紹介</h3>
+          <p>条件に合う住み込み求人を、最短即日でご提案します。</p>
+        </li>
+        <li class="flow__step glass">
+          <span class="flow__no">STEP 04</span>
+          <h3>面接・入職</h3>
+          <p>面接日程の調整から入寮手続きまで、まるごと同行サポート。</p>
+        </li>
+        <li class="flow__step glass">
+          <span class="flow__no">STEP 05</span>
+          <h3>入職後フォロー</h3>
+          <p>働き始めてからも定期的に連絡。困りごとはいつでも相談OK。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Jobs ===== -->
+  <section class="section" id="jobs">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="section__kicker">JOB CATEGORY</p>
+        <h2 class="section__title">未経験から始めやすい<span class="grad">軽作業のお仕事</span></h2>
+        <p class="section__desc">力仕事や専門スキルは不要。シンプルな作業からスタートできます。</p>
+      </header>
+
+      <div class="jobs reveal" data-delay="100">
+        <article class="job-card glass">
+          <figure class="job-card__media media">
+            <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=900&q=80"
+                 alt="ピッキング作業" loading="lazy"
+                 onerror="this.closest('.media').classList.add('is-fallback');this.remove();">
+          </figure>
+          <div class="job-card__body">
+            <h3>ピッキング</h3>
+            <p>指示書を見て、棚から商品を集めるだけ。歩きながら進める軽作業です。</p>
+          </div>
+        </article>
+        <article class="job-card glass">
+          <figure class="job-card__media media">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80"
+                 alt="仕分け・梱包作業" loading="lazy"
+                 onerror="this.closest('.media').classList.add('is-fallback');this.remove();">
+          </figure>
+          <div class="job-card__body">
+            <h3>仕分け・梱包</h3>
+            <p>商品を行き先ごとに分け、箱詰めする作業。コツコツ進めたい方に。</p>
+          </div>
+        </article>
+        <article class="job-card glass">
+          <figure class="job-card__media media">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80"
+                 alt="検品作業" loading="lazy"
+                 onerror="this.closest('.media').classList.add('is-fallback');this.remove();">
+          </figure>
+          <div class="job-card__body">
+            <h3>検品・検査</h3>
+            <p>製品にキズや不良がないかチェック。座り作業の求人も多数あります。</p>
+          </div>
+        </article>
+        <article class="job-card glass">
+          <figure class="job-card__media media">
+            <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=900&q=80"
+                 alt="組立・加工作業" loading="lazy"
+                 onerror="this.closest('.media').classList.add('is-fallback');this.remove();">
+          </figure>
+          <div class="job-card__body">
+            <h3>組立・加工</h3>
+            <p>かんたんな部品の組み立てやマシン操作。手順は丁寧に教わってから。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Dorm ===== -->
+  <section class="section" id="dorm">
+    <div class="container">
+      <div class="split">
+        <figure class="split__media media reveal">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
+               alt="家具家電付きの清潔な寮の室内" loading="lazy"
+               onerror="this.closest('.media').classList.add('is-fallback');this.remove();">
+        </figure>
+        <div class="split__body reveal" data-delay="120">
+          <p class="section__kicker">DORMITORY</p>
+          <h2 class="section__title">手ぶらで入居できる、<span class="grad">きれいな寮</span>。</h2>
+          <p class="section__desc">「住まい」がそのまま整っているから、引っ越しの準備も初期費用もいりません。</p>
+          <ul class="ticks">
+            <li>家具・家電付き（ベッド／冷蔵庫／洗濯機 ほか）</li>
+            <li>寮費・水道光熱費の補助あり、実質負担をぐっと軽く</li>
+            <li>個室寮・1R寮など、プライバシー重視の物件も多数</li>
+            <li>勤務地まで徒歩・送迎圏内。通勤の負担が少ない立地</li>
+          </ul>
+          <a href="#contact" class="btn btn--line btn--lg">
+            <span class="ico-line" aria-hidden="true"></span>寮付き求人を相談する
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Voices ===== -->
+  <section class="section" id="voices">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="section__kicker">VOICES</p>
+        <h2 class="section__title">ご利用者様の<span class="grad">声</span></h2>
+      </header>
+
+      <div class="voices reveal" data-delay="100">
+        <figure class="voice-card glass">
+          <div class="voice-card__rate" aria-label="評価5">★★★★★</div>
+          <blockquote>所持金が数百円しかない状態で相談しました。その日のうちに寮と仕事が決まり、移動費も出してもらえて本当に助かりました。</blockquote>
+          <figcaption class="voice-card__person">
+            <span class="avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+                   alt="" loading="lazy"
+                   onerror="this.closest('.avatar').classList.add('is-fallback');this.remove();">
+            </span>
+            <span>
+              <strong>K.S さん / 28歳</strong>
+              <small>ピッキング・愛知県</small>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="voice-card glass">
+          <div class="voice-card__rate" aria-label="評価5">★★★★★</div>
+          <blockquote>軽作業は初めてでしたが、作業はシンプルで未経験でもすぐ慣れました。寮もきれいで、給料日まで食事サポートがあったのも安心でした。</blockquote>
+          <figcaption class="voice-card__person">
+            <span class="avatar">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                   alt="" loading="lazy"
+                   onerror="this.closest('.avatar').classList.add('is-fallback');this.remove();">
+            </span>
+            <span>
+              <strong>T.M さん / 35歳</strong>
+              <small>検品・静岡県</small>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="voice-card glass">
+          <div class="voice-card__rate" aria-label="評価5">★★★★★</div>
+          <blockquote>携帯も持っていなかったので不安でしたが、スマホを貸してもらえました。今は月収40万円を超えて、貯金もできるようになりました。</blockquote>
+          <figcaption class="voice-card__person">
+            <span class="avatar">
+              <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=200&q=80"
+                   alt="" loading="lazy"
+                   onerror="this.closest('.avatar').classList.add('is-fallback');this.remove();">
+            </span>
+            <span>
+              <strong>Y.N さん / 42歳</strong>
+              <small>組立・神奈川県</small>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section--tight" id="faq">
+    <div class="container container--narrow">
+      <header class="section__head reveal">
+        <p class="section__kicker">FAQ</p>
+        <h2 class="section__title">よくある<span class="grad">質問</span></h2>
+      </header>
+
+      <div class="faq reveal" data-delay="100">
+        <details class="faq__item glass">
+          <summary>本当に所持金ゼロでも始められますか？</summary>
+          <div class="faq__a"><p>はい。赴任費用・入居前の滞在先・給料日までの食事サポートをご用意しているため、所持金がほとんどない状態でもお仕事をスタートできます。まずはご相談ください。</p></div>
+        </details>
+        <details class="faq__item glass">
+          <summary>未経験・職歴なしでも応募できますか？</summary>
+          <div class="faq__a"><p>もちろんです。ご紹介する軽作業はシンプルな作業が中心で、手順は入職後に丁寧に教わってからスタートします。採用率は98%、経験や職歴は問いません。</p></div>
+        </details>
+        <details class="faq__item glass">
+          <summary>寮の費用はどのくらいかかりますか？</summary>
+          <div class="faq__a"><p>寮費・移動費は0円からご案内可能です。家具家電付きの寮が中心で、水道光熱費の補助がある求人も多数あります。詳しい条件は求人ごとにご説明します。</p></div>
+        </details>
+        <details class="faq__item glass">
+          <summary>携帯電話を持っていなくても大丈夫ですか？</summary>
+          <div class="faq__a"><p>問題ありません。連絡手段がない方にはスマートフォンの貸出サポートをご用意しています。就業中の連絡もこれで安心です。</p></div>
+        </details>
+        <details class="faq__item glass">
+          <summary>相談したら、必ず働かないといけませんか？</summary>
+          <div class="faq__a"><p>いいえ。ご相談・登録は完全無料で、お話を聞くだけでも構いません。無理な勧誘は一切行いませんので、安心してご連絡ください。</p></div>
+        </details>
+        <details class="faq__item glass">
+          <summary>どのくらいで働き始められますか？</summary>
+          <div class="faq__a"><p>条件によっては、ご相談当日に面接、その日のうちに入職・入寮できるケースもあります。お急ぎの方はその旨をお伝えください。</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta__panel glass reveal">
+        <p class="section__kicker">START TODAY</p>
+        <h2 class="cta__title">住まいも仕事も、<span class="grad">今日から動き出せる。</span></h2>
+        <p class="cta__lead">ご相談は無料・24時間受付。LINEなら、友だち追加してメッセージを送るだけ。<br class="br-pc">専任スタッフが、あなたに合った住み込みの軽作業をご提案します。</p>
+        <div class="cta__buttons">
+          <a href="#" class="btn btn--line btn--xl">
+            <span class="ico-line" aria-hidden="true"></span>LINEで無料相談する
+          </a>
+          <a href="tel:0120000000" class="btn btn--ghost btn--xl">
+            <span class="ico-phone" aria-hidden="true"></span>0120-000-000
+          </a>
+        </div>
+        <p class="hero__note">受付時間 9:00–21:00 ／ ご相談・登録は完全無料</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">Masaya<em>Works</em></span>
+    </a>
+    <nav class="footer__links">
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#flow">ご入職の流れ</a>
+      <a href="#jobs">お仕事の種類</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <p class="footer__copy">&copy; 2026 Masaya Works. 住み込み寮付き 軽作業お仕事紹介サービス.</p>
+  </div>
+</footer>
+
+<!-- ===== Floating CTA ===== -->
+<a href="#contact" class="float-line" aria-label="LINEで無料相談">
+  <span class="ico-line" aria-hidden="true"></span>
+  <span class="float-line__text">LINE相談</span>
+</a>
+
+<script src="script.js"></script>
 </body>
 </html>
