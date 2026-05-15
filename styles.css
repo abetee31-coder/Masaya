@@ -349,7 +349,6 @@ section[id],main[id]{ scroll-margin-top:90px; }
   aspect-ratio:4/4.5; box-shadow:var(--shadow);
   border:6px solid #fff;
 }
-.media--hero img{ object-position:40% 28%; }
 
 .float-card{
   position:absolute; display:flex; align-items:center; gap:12px;
