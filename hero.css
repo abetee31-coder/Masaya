@@ -7,15 +7,17 @@
   background-repeat:no-repeat;
 }
 
-/* Full-hero transparent portrait background */
+/* Full-hero transparent portrait — gradient mask fades left (text) to right (face) */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background-position:62% 12%;
-  opacity:.13;
+  background-position:68% 10%;
+  opacity:.28;
   z-index:1;
   pointer-events:none;
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 22%, rgba(0,0,0,.65) 50%, black 68%);
+  mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 22%, rgba(0,0,0,.65) 50%, black 68%);
 }
 
 /* Float cards repositioned for full-width hero */
