@@ -7,19 +7,18 @@
   background-repeat:no-repeat;
 }
 
-/* Full-hero transparent portrait — gradient mask fades left (text) to right (face) */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-position:68% 10%;
-  opacity:.55;
-  z-index:1;
-  pointer-events:none;
-  -webkit-mask-image:linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,.4) 35%, rgba(0,0,0,.85) 55%, black 70%);
-  mask-image:linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,.4) 35%, rgba(0,0,0,.85) 55%, black 70%);
+/* Full-bg overlay removed — portrait lives in right column instead */
+.hero::before{ display:none; }
+
+/* Portrait card in right column */
+.hero-photo{
+  background-position:58% 12%;
+  border-radius:var(--r-lg);
+  aspect-ratio:3/4;
+  box-shadow:0 28px 72px -24px rgba(46,80,28,.42), 0 0 0 6px rgba(255,255,255,.8);
+  width:100%;
 }
 
-/* Float cards repositioned for full-width hero */
-.float-card--a{ top:22%; right:5%; left:auto; }
-.float-card--b{ bottom:18%; right:5%; left:auto; }
+/* Float cards overlap the portrait */
+.float-card--a{ top:20%; right:3%; left:auto; }
+.float-card--b{ bottom:20%; right:3%; left:auto; }
