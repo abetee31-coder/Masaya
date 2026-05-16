@@ -511,7 +511,7 @@ section[id],main[id]{ scroll-margin-top:90px; }
   font-family:var(--font); font-weight:700; }
 .num-card--hero .num-card__value{
   font-size:clamp(3rem,9vw,5rem); -webkit-text-fill-color:#fff; color:#fff;
-  background:none;
+  background:none; white-space:nowrap;
 }
 .num-card--hero .num-card__value em,
 .num-card--hero .num-card__value .range{
