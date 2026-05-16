@@ -836,16 +836,20 @@ section[id],main[id]{ scroll-margin-top:90px; }
   .num-card,.num-card--hero{ grid-column:span 1 !important; }
   .flow{ grid-template-columns:1fr; }
   .jobs{ grid-template-columns:1fr; }
-  /* Voices horizontal marquee on mobile */
-  .voices{ display:block; overflow:hidden; padding:8px 0 16px; }
-  .voices-inner{
-    display:flex;
-    animation:voices-marquee 6s linear infinite;
-    will-change:transform;
+  /* Voices carousel on mobile */
+  .voices{ display:block; overflow:hidden; padding:8px 0 0; }
+  .voices-track{ display:flex; transition:transform .65s cubic-bezier(.22,.61,.36,1); }
+  .voices .voice-card{ flex:0 0 100%; max-width:100%; }
+  .voices-dots{
+    display:flex; justify-content:center; gap:8px;
+    margin-top:14px; padding-bottom:4px;
   }
-  .voices-inner:hover{ animation-play-state:paused; }
-  .voices-track{ display:flex; gap:16px; flex-shrink:0; padding-right:16px; }
-  .voices .voice-card{ flex:0 0 82vw; max-width:82vw; }
+  .voices-dots button{
+    width:8px; height:8px; border-radius:50%; padding:0; cursor:pointer;
+    background:var(--green-pale); border:1px solid var(--green-lite);
+    transition:background .3s, transform .3s;
+  }
+  .voices-dots button.is-active{ background:var(--green-mid); transform:scale(1.35); }
 
   .hero__stats{ gap:10px; }
   .stat-chip{ flex:1; min-width:104px; padding:13px 16px; }

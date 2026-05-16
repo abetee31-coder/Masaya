@@ -504,32 +504,67 @@
   reasonsObs.observe(reasons);
 })();
 
-// Mobile voices marquee
+// Mobile voices slideshow
 (function(){
   if(window.innerWidth > 760) return;
   var voices = document.querySelector('.voices');
   if(!voices) return;
   var cards = Array.from(voices.children);
-  var track = document.createElement('div');
-  track.className = 'voices-track';
-  cards.forEach(function(c){ track.appendChild(c); });
-  var clone = track.cloneNode(true);
-  clone.setAttribute('aria-hidden','true');
-  var inner = document.createElement('div');
-  inner.className = 'voices-inner';
-  inner.appendChild(track);
-  inner.appendChild(clone);
-  voices.appendChild(inner);
-  // revealアニメーションを無効化して全カードを表示
-  inner.querySelectorAll('.voice-card').forEach(function(c){
+  if(!cards.length) return;
+
+  // revealアニメーション解除
+  cards.forEach(function(c){
     c.classList.remove('reveal','scale');
     c.style.cssText += 'opacity:1;transform:none;animation:none;';
   });
-  // カード枚数に応じて速度を調整（1枚あたり2s）
-  inner.style.animationDuration = (cards.length * 2) + 's';
-  inner.addEventListener('touchstart', function(){ inner.style.animationPlayState='paused'; }, {passive:true});
-  inner.addEventListener('touchend',   function(){ inner.style.animationPlayState='running'; }, {passive:true});
-  inner.addEventListener('touchcancel',function(){ inner.style.animationPlayState='running'; }, {passive:true});
+
+  // トラックにまとめる
+  var track = document.createElement('div');
+  track.className = 'voices-track';
+  cards.forEach(function(c){ track.appendChild(c); });
+  voices.appendChild(track);
+
+  // ドットインジケーター
+  var dots = document.createElement('div');
+  dots.className = 'voices-dots';
+  cards.forEach(function(_, i){
+    var btn = document.createElement('button');
+    btn.setAttribute('aria-label', (i+1) + '枚目');
+    btn.addEventListener('click', function(){ goTo(i); resetTimer(); });
+    dots.appendChild(btn);
+  });
+  voices.appendChild(dots);
+
+  var current = 0;
+
+  function updateDots(){
+    Array.from(dots.children).forEach(function(b,i){
+      b.classList.toggle('is-active', i === current);
+    });
+  }
+
+  function goTo(n){
+    current = ((n % cards.length) + cards.length) % cards.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    updateDots();
+  }
+
+  goTo(0);
+
+  var timer = setInterval(function(){ goTo(current + 1); }, 10000);
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo(current + 1); }, 10000);
+  }
+
+  // スワイプ対応
+  var startX = 0;
+  voices.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  voices.addEventListener('touchend', function(e){
+    var dx = startX - e.changedTouches[0].clientX;
+    if(Math.abs(dx) > 50){ goTo(current + (dx > 0 ? 1 : -1)); resetTimer(); }
+  }, {passive:true});
 })();
 </script>
 </body>
