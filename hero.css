@@ -27,7 +27,7 @@
 /* Mobile: center the portrait and fade bottom (text area) */
 @media (max-width: 760px) {
   .hero::before{
-    background-position:52% 5%;
+    background-position:72% 5%;
     opacity:.52;
     -webkit-mask-image:linear-gradient(to bottom, black 0%, black 45%, rgba(0,0,0,.3) 72%, transparent 92%);
     mask-image:linear-gradient(to bottom, black 0%, black 45%, rgba(0,0,0,.3) 72%, transparent 92%);
