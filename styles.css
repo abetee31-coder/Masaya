@@ -329,6 +329,40 @@ section[id],main[id]{ scroll-margin-top:90px; }
 .stat-chip__label{ font-size:.78rem; color:var(--ink-faint); font-weight:500;
   letter-spacing:.04em; }
 
+.stat-chip--highlight{
+  background:linear-gradient(135deg,rgba(140,198,63,.18),rgba(58,125,44,.12));
+  border:1.5px solid rgba(140,198,63,.55);
+  position:relative;
+  overflow:hidden;
+}
+.stat-chip--highlight::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.5) 50%,transparent 65%);
+  transform:translateX(-160%);
+  animation:stat-shimmer 2.8s ease-in-out infinite;
+}
+@keyframes stat-shimmer{
+  0%,25%{ transform:translateX(-160%); }
+  75%,100%{ transform:translateX(220%); }
+}
+.stat-chip--highlight .stat-chip__num{
+  font-size:1.75rem;
+  background:linear-gradient(110deg,var(--green-mid),var(--green-deep));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-chip--highlight .stat-chip__num em{
+  font-size:inherit;
+  -webkit-text-fill-color:transparent;
+}
+.stat-chip--highlight .stat-chip__label{
+  color:var(--green-mid);
+  font-weight:600;
+}
+
 .hero__cta{ display:flex; flex-wrap:wrap; gap:14px; }
 .hero__note{ margin-top:16px; font-size:.8rem; color:var(--ink-faint); }
 
