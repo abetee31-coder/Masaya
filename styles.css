@@ -846,6 +846,8 @@ section[id],main[id]{ scroll-margin-top:90px; }
   .bento__card,.bento__card--feature,.bento__card--wide{ grid-column:span 1 !important; }
   .numbers{ grid-template-columns:1fr 1fr; }
   .num-card,.num-card--hero{ grid-column:span 1 !important; }
+  .num-card--hero{ grid-column:span 2 !important; }
+  .num-card--hero .num-card__value{ font-size:clamp(1.8rem,8vw,2.4rem); }
   .flow{ grid-template-columns:1fr; }
   /* Jobs carousel on mobile */
   .jobs{ display:block; overflow:hidden; padding:8px 0 0; }
