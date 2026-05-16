@@ -28,7 +28,7 @@
 @media (max-width: 760px) {
   .hero::before{
     background-position:30% 0%;
-    background-size:auto 60%;
+    background-size:auto 50%;
     opacity:.52;
     -webkit-mask-image:linear-gradient(to bottom, black 0%, black 45%, rgba(0,0,0,.3) 72%, transparent 92%);
     mask-image:linear-gradient(to bottom, black 0%, black 45%, rgba(0,0,0,.3) 72%, transparent 92%);
