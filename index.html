@@ -566,6 +566,65 @@
     if(Math.abs(dx) > 50){ goTo(current + (dx > 0 ? 1 : -1)); resetTimer(); }
   }, {passive:true});
 })();
+
+// Mobile jobs slideshow
+(function(){
+  if(window.innerWidth > 760) return;
+  var jobs = document.querySelector('.jobs');
+  if(!jobs) return;
+  var cards = Array.from(jobs.children);
+  if(!cards.length) return;
+
+  cards.forEach(function(c){
+    c.classList.remove('reveal','scale');
+    c.style.cssText += 'opacity:1;transform:none;animation:none;';
+  });
+
+  var track = document.createElement('div');
+  track.className = 'jobs-track';
+  cards.forEach(function(c){ track.appendChild(c); });
+  jobs.appendChild(track);
+
+  var dots = document.createElement('div');
+  dots.className = 'jobs-dots';
+  cards.forEach(function(_, i){
+    var btn = document.createElement('button');
+    btn.setAttribute('aria-label', (i+1) + '枚目');
+    btn.addEventListener('click', function(){ goTo(i); resetTimer(); });
+    dots.appendChild(btn);
+  });
+  jobs.appendChild(dots);
+
+  var current = 0;
+
+  function updateDots(){
+    Array.from(dots.children).forEach(function(b,i){
+      b.classList.toggle('is-active', i === current);
+    });
+  }
+
+  function goTo(n){
+    current = ((n % cards.length) + cards.length) % cards.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    updateDots();
+  }
+
+  goTo(0);
+
+  var timer = setInterval(function(){ goTo(current + 1); }, 10000);
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo(current + 1); }, 10000);
+  }
+
+  var startX = 0;
+  jobs.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  jobs.addEventListener('touchend', function(e){
+    var dx = startX - e.changedTouches[0].clientX;
+    if(Math.abs(dx) > 50){ goTo(current + (dx > 0 ? 1 : -1)); resetTimer(); }
+  }, {passive:true});
+})();
 </script>
 </body>
 </html>
