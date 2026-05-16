@@ -13,6 +13,9 @@
 </head>
 <body>
 
+<!-- ===== Fixed portrait layer (trust + reasons sections) ===== -->
+<div class="portrait-layer" aria-hidden="true"></div>
+
 <!-- ===== Ambient background ===== -->
 <div class="aurora" aria-hidden="true">
   <span class="blob blob--1"></span>
@@ -449,5 +452,33 @@
 </a>
 
 <script src="script.js"></script>
+<script>
+(function(){
+  var layer = document.querySelector('.portrait-layer');
+  var hero  = document.querySelector('.hero');
+  var reasons = document.getElementById('reasons');
+  if(!layer || !hero || !reasons) return;
+
+  var heroObs = new IntersectionObserver(function(entries){
+    if(!entries[0].isIntersecting){
+      layer.classList.add('is-active');
+    } else {
+      layer.classList.remove('is-active');
+    }
+  }, { threshold: 0 });
+
+  var reasonsObs = new IntersectionObserver(function(entries){
+    var e = entries[0];
+    if(e.isIntersecting){
+      layer.classList.add('is-active');
+    } else if(e.boundingClientRect.bottom < 0){
+      layer.classList.remove('is-active');
+    }
+  }, { threshold: 0 });
+
+  heroObs.observe(hero);
+  reasonsObs.observe(reasons);
+})();
+</script>
 </body>
 </html>
