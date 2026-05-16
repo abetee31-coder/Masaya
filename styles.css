@@ -270,7 +270,7 @@ section[id],main[id]{ scroll-margin-top:90px; }
 .hero{
   position:relative; overflow:hidden;
   padding:clamp(124px,17vw,188px) 0 clamp(84px,9vw,124px);
-  background:var(--grad-hero);
+  background:linear-gradient(170deg,#fafdf5 0%,#f9fcf2 100%);
 }
 .hero::after{
   content:""; position:absolute; left:0; right:0; bottom:-1px; height:120px;

@@ -7,17 +7,17 @@
   background-repeat:no-repeat;
 }
 
-/* Full-hero transparent portrait — gradient mask fades left (text) to right (face) */
+/* Full-hero portrait with gradient mask — left transparent, right prominent */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background-position:68% 10%;
-  opacity:.55;
+  background-position:65% 8%;
+  opacity:.68;
   z-index:1;
   pointer-events:none;
-  -webkit-mask-image:linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,.4) 35%, rgba(0,0,0,.85) 55%, black 70%);
-  mask-image:linear-gradient(to right, transparent 0%, transparent 15%, rgba(0,0,0,.4) 35%, rgba(0,0,0,.85) 55%, black 70%);
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, transparent 12%, rgba(0,0,0,.2) 22%, rgba(0,0,0,.75) 40%, black 55%);
+  mask-image:linear-gradient(to right, transparent 0%, transparent 12%, rgba(0,0,0,.2) 22%, rgba(0,0,0,.75) 40%, black 55%);
 }
 
 /* Float cards repositioned for full-width hero */
