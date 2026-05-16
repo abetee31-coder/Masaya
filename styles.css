@@ -511,6 +511,32 @@ section[id],main[id]{ scroll-margin-top:90px; }
 .num-card__note{ color:var(--ink-soft); font-size:.86rem; margin-top:8px; }
 .num-card--hero .num-card__note{ color:rgba(255,255,255,.92); }
 
+.num-card--highlight{
+  background:linear-gradient(135deg,rgba(140,198,63,.18),rgba(58,125,44,.12));
+  border:1.5px solid rgba(140,198,63,.55);
+}
+.num-card--highlight::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.5) 50%,transparent 65%);
+  transform:translateX(-160%);
+  animation:stat-shimmer 2.8s ease-in-out infinite;
+  pointer-events:none;
+}
+.num-card--highlight .num-card__value{
+  background:linear-gradient(110deg,var(--green-mid),var(--green-deep));
+  -webkit-background-clip:text; background-clip:text;
+}
+.num-card--highlight .num-card__value em.range{
+  font-size:inherit; font-family:var(--font-serif);
+  -webkit-text-fill-color:transparent; color:transparent; margin-left:0;
+}
+.num-card--highlight .num-card__value em:not(.range){
+  -webkit-text-fill-color:var(--green-deep); color:var(--green-deep);
+}
+.num-card--highlight .num-card__label{ color:var(--green-mid); }
+
 /* =========================================================
    Flow
    ========================================================= */
