@@ -340,7 +340,7 @@
         </figure>
 
         <figure class="voice-card glass reveal scale" data-delay="160">
-          <div class="voice-card__rate" aria-label="評価5">★★★★★</div>
+          <div class="voice-card__rate" aria-label="評価4">★★★★☆</div>
           <blockquote>軽作業は初めてでしたが、作業はシンプルで未経験でもすぐ慣れました。寮もきれいで、給料日まで食事サポートがあったのも安心でした。</blockquote>
           <figcaption class="voice-card__person">
             <span class="avatar" aria-hidden="true">T</span>
@@ -353,7 +353,7 @@
 
         <figure class="voice-card glass reveal scale" data-delay="200">
           <div class="voice-card__rate" aria-label="評価5">★★★★★</div>
-          <blockquote>携帯も持っていなかったので不安でしたが、スマホを貸してもらえました。今は月収40万円を超えて、貯金もできるようになりました。</blockquote>
+          <blockquote>携帯も持っていなかったので不安でしたが、スマホを貸してもらえました。今は月収35万円を超えて、貯金もできるようになりました。</blockquote>
           <figcaption class="voice-card__person">
             <span class="avatar" aria-hidden="true">Y</span>
             <span>
@@ -478,6 +478,24 @@
 
   heroObs.observe(hero);
   reasonsObs.observe(reasons);
+})();
+
+// Mobile voices marquee
+(function(){
+  if(window.innerWidth > 760) return;
+  var voices = document.querySelector('.voices');
+  if(!voices) return;
+  var cards = Array.from(voices.children);
+  var track = document.createElement('div');
+  track.className = 'voices-track';
+  cards.forEach(function(c){ track.appendChild(c); });
+  var clone = track.cloneNode(true);
+  clone.setAttribute('aria-hidden','true');
+  var inner = document.createElement('div');
+  inner.className = 'voices-inner';
+  inner.appendChild(track);
+  inner.appendChild(clone);
+  voices.appendChild(inner);
 })();
 </script>
 </body>
