@@ -492,6 +492,14 @@ section[id],main[id]{ scroll-margin-top:90px; }
   grid-column:span 3; grid-row:span 2; justify-content:flex-start;
   background:var(--grad-cta); border-color:transparent;
 }
+.num-card--hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);
+  transform:translateX(-160%);
+  animation:stat-shimmer 2.8s ease-in-out infinite;
+  pointer-events:none; border-radius:inherit;
+}
 .num-card__value{
   font-family:var(--font-serif); font-weight:600; line-height:1.05;
   font-size:clamp(2rem,5.4vw,3.1rem);
@@ -505,7 +513,11 @@ section[id],main[id]{ scroll-margin-top:90px; }
   font-size:clamp(3rem,9vw,5rem); -webkit-text-fill-color:#fff; color:#fff;
   background:none;
 }
-.num-card--hero .num-card__value em{ -webkit-text-fill-color:#fff; color:#fff; }
+.num-card--hero .num-card__value em,
+.num-card--hero .num-card__value .range{
+  -webkit-text-fill-color:#fff; color:#fff;
+  font-family:var(--font-serif); font-size:inherit; margin-left:0;
+}
 .num-card__label{ font-weight:700; font-size:.94rem; color:var(--ink); }
 .num-card--hero .num-card__label{ color:#fff; }
 .num-card__note{ color:var(--ink-soft); font-size:.86rem; margin-top:8px; }
