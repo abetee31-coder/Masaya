@@ -637,8 +637,8 @@
   function updateDots(){ Array.from(dots.children).forEach(function(b,i){ b.classList.toggle('is-active', i === current); }); }
   function goTo(n){ current = ((n % cards.length) + cards.length) % cards.length; track.style.transform = 'translateX(-' + (current * 100) + '%)'; updateDots(); }
   goTo(0);
-  var timer = setInterval(function(){ goTo(current + 1); }, 3000);
-  function resetTimer(){ clearInterval(timer); timer = setInterval(function(){ goTo(current + 1); }, 3000); }
+  var timer = setInterval(function(){ goTo(current + 1); }, 2000);
+  function resetTimer(){ clearInterval(timer); timer = setInterval(function(){ goTo(current + 1); }, 2000); }
   var startX = 0;
   flow.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
   flow.addEventListener('touchend', function(e){
