@@ -840,7 +840,7 @@ section[id],main[id]{ scroll-margin-top:90px; }
   .voices{ display:block; overflow:hidden; padding:8px 0 16px; }
   .voices-inner{
     display:flex;
-    animation:voices-marquee 10s linear infinite;
+    animation:voices-marquee 6s linear infinite;
     will-change:transform;
   }
   .voices-inner:hover{ animation-play-state:paused; }

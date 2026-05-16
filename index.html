@@ -496,6 +496,9 @@
   inner.appendChild(track);
   inner.appendChild(clone);
   voices.appendChild(inner);
+  inner.addEventListener('touchstart', function(){ inner.style.animationPlayState='paused'; }, {passive:true});
+  inner.addEventListener('touchend',   function(){ inner.style.animationPlayState='running'; }, {passive:true});
+  inner.addEventListener('touchcancel',function(){ inner.style.animationPlayState='running'; }, {passive:true});
 })();
 </script>
 </body>
