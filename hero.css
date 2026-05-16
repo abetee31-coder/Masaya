@@ -23,3 +23,13 @@
 /* Float cards repositioned for full-width hero */
 .float-card--a{ top:22%; right:5%; left:auto; }
 .float-card--b{ bottom:18%; right:5%; left:auto; }
+
+/* Mobile: center the portrait and fade bottom (text area) */
+@media (max-width: 760px) {
+  .hero::before{
+    background-position:52% 5%;
+    opacity:.52;
+    -webkit-mask-image:linear-gradient(to bottom, black 0%, black 45%, rgba(0,0,0,.3) 72%, transparent 92%);
+    mask-image:linear-gradient(to bottom, black 0%, black 45%, rgba(0,0,0,.3) 72%, transparent 92%);
+  }
+}
