@@ -870,7 +870,20 @@ section[id],main[id]{ scroll-margin-top:90px; }
   .num-card--hero{ grid-column:span 2 !important; justify-content:center; align-items:center; text-align:center; }
   .num-card--hero .num-card__value{ font-size:clamp(1.8rem,8vw,2.4rem); }
   .num-card--mobile-only{ display:flex; }
-  .flow{ grid-template-columns:1fr; }
+  /* Flow carousel on mobile */
+  .flow{ display:block; overflow:hidden; padding:8px 0 0; }
+  .flow-track{ display:flex; transition:transform .65s cubic-bezier(.22,.61,.36,1); }
+  .flow .flow__step{ flex:0 0 100%; max-width:100%; }
+  .flow-dots{
+    display:flex; justify-content:center; gap:8px;
+    margin-top:14px; padding-bottom:4px;
+  }
+  .flow-dots button{
+    width:8px; height:8px; border-radius:50%; padding:0; cursor:pointer;
+    background:var(--green-pale); border:1px solid var(--green-lite);
+    transition:background .3s, transform .3s;
+  }
+  .flow-dots button.is-active{ background:var(--green-mid); transform:scale(1.35); }
   /* Jobs carousel on mobile */
   .jobs{ display:block; overflow:hidden; padding:8px 0 0; }
   .jobs-track{ display:flex; transition:transform .65s cubic-bezier(.22,.61,.36,1); }
